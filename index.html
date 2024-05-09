@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png">
+    <title>Gokstad Ranch</title>
+</head>
+<body>
+    <header>Welcome to Gokstad Ranch Dog Adoption</header>
+    <hr>
+    <div class="form__main__container">
+      <form id="login__form" style="display:none;" onsubmit="loginUser(event)">
+          <h2>Login</h2>
+          <input type="email" id="login__email__input" placeholder="Email" name="email" required>
+          <input type="password" id="login__password__input" placeholder="Password" name="password" required>
+          <button type="submit">Login</button>
+      </form>
+
+      <form id="registration__form" onsubmit="registerUser(event)">
+          <h2>Register</h2>
+          <input type="email" id="register__email_input" placeholder="Email" name="email" required>
+          <input type="password" id="register__password__input" placeholder="Password" name="password" required>
+          <button type="submit">Register</button>
+      </form>
+
+      <button id="toggle__forms" onclick="toggleForms()">Switch to Login</button>
+  </div>
+    <div id="dog__main__container">
+    <div id="dog__name__container"></div>
+    <div id="dog__image__container"></div>
+</div>
+</body>
+<script src="./js/script.js"></script>
+<script src="./js/userauth.js"></script>
+</html>
