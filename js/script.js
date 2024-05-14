@@ -1,4 +1,6 @@
-window.onload = function randomDogs() {
+// Initial fetching of randomized dog pictures.
+
+window.onload = function randomDogs() { 
     const dogImageContainer = document.getElementById('dog__image__container');
 
     async function fetchAndDisplayImage() {
@@ -6,11 +8,15 @@ window.onload = function randomDogs() {
             const response = await fetch('https://dog.ceo/api/breeds/image/random');
             const data = await response.json();
             if (data.status === 'success') {
-                const img = document.createElement('img');
+                const img = document.createElement('img'); // Creating elements instead of hardcoding HTML.
                 img.src = data.message;
                 img.style.width = 'auto'; 
                 img.style.height = '300px';
                 dogImageContainer.appendChild(img);
+                img.addEventListener('click', function() {
+                    localStorage.setItem('selectedDogImage', img.src);
+                    window.location.href = 'selected.html';
+                });
             } else {
                 console.log('Failed to fetch dog image');
             }
@@ -19,7 +25,11 @@ window.onload = function randomDogs() {
         }
     }
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {  // For loop to request random dog picture 10 times.
         fetchAndDisplayImage();
     }
 };
+
+// Sources: 
+
+// https://stackoverflow.com/questions/76149003/foreach-loop-in-js-is-only-selecting-one-image-from-my-gallery
