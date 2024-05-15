@@ -1,3 +1,5 @@
+import { dogNames } from "./arrays.js";
+
 // Initial fetching of randomized dog pictures.
 
 window.onload = function randomDogs() { 
@@ -15,6 +17,9 @@ window.onload = function randomDogs() {
                 dogImageContainer.appendChild(img);
                 img.addEventListener('click', function() {
                     localStorage.setItem('selectedDogImage', img.src);
+                    const randomIndex = Math.floor(Math.random() * dogNames.length);
+                    const selectedDogName = dogNames[randomIndex].name;
+                    localStorage.setItem('selectedDogName', selectedDogName);
                     window.location.href = 'selected.html';
                 });
             } else {
