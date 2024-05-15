@@ -82,14 +82,17 @@ function loginUser(event) {
 
 function toggleForms() {
   const loginForm = document.getElementById("login__form");
-  const registrationForm = document.getElementById("registration__form"); // Toggling between register/login forms.
+  const registrationForm = document.getElementById("registration__form");
+  const toggleFormsButton = document.getElementById("toggle__forms"); // Toggling between register/login forms.
 
   if (loginForm.style.display === "none") {
     loginForm.style.display = "block";
     registrationForm.style.display = "none";
+    toggleFormsButton.textContent = "Switch To Register";    
   } else {
     loginForm.style.display = "none";
     registrationForm.style.display = "block";
+    toggleFormsButton.textContent = "Switch To Login"
   }
 }
 

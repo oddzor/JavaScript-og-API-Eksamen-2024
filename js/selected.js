@@ -53,8 +53,8 @@ function addToWishlist() {
   const selectedDogName = localStorage.getItem("selectedDogName");
   const breedElement = document.getElementById("selected__dog__breed");
   const selectedDogBreed = breedElement
-    ? breedElement.textContent.replace("Breed: ", "")
-    : "Unknown Breed";
+    ? breedElement.textContent.replace("Breed: ", "") // Removing "Breed:" to clean up stored object
+    : "Unknown Breed"; 
   const userId = localStorage.getItem("userID");
 
   if (!userId) {
@@ -67,7 +67,6 @@ function addToWishlist() {
     .then((response) => response.json())
     .then((user) => {
       const favoriteDog = {
-        // Creating object to store
         image: selectedDogImage,
         name: selectedDogName,
         breed: selectedDogBreed,
@@ -120,6 +119,13 @@ window.onload = function () {  // Running necessary function on pageload.
     .getElementById("dog__wishlist__button")
     .addEventListener("click", addToWishlist);
 };
+
+
+document.getElementById("goto__wishlist__button").addEventListener("click", function goToWishlist() {
+  window.location.href = 'wishlist.html';
+} ); 
+  
+
 
 // Sources:
 
