@@ -34,8 +34,8 @@ function registerUser(event) {
       });
     })
     .then((response) => response.json())
-    .then((data) => {
-      console.log("Registration Successful", data);
+    .then(() => {
+      console.log("Registration Successful");
       toggleForms();
     })
     .catch((error) => console.error("Error:", error));
@@ -66,7 +66,7 @@ function loginUser(event) {
         (u) => u.email === email && u.password === password
       );
       if (user) {
-        console.log("Login Successful", user);
+        console.log("Login Successful");
         localStorage.setItem("userID", user._id); // Adding userID and email to localStorage to simplify usage with selection and favorites.
         localStorage.setItem("userEmail", email);
         alert("Login Successful!");
@@ -78,6 +78,23 @@ function loginUser(event) {
       }
     })
     .catch((error) => console.error("Error:", error));
+}
+
+function logoutUser() {
+  localStorage.clear(); 
+  window.location.href = 'index.html';
+}
+
+const logoutButton = document.getElementById("logout__button").addEventListener("click", logoutUser);
+
+function isLoggedIn() {
+  const userId = localStorage.getItem('userID');
+  if (userId) {
+      document.getElementById("login__form").style.display = "none";
+      document.getElementById("registration__form").style.display = "none";
+      document.getElementById("toggle__forms").style.display = "none";
+      document.getElementById("logout__button").style.display = "block";
+  }
 }
 
 function toggleForms() {
@@ -95,6 +112,8 @@ function toggleForms() {
     toggleFormsButton.textContent = "Switch To Login"
   }
 }
+
+window.onload = isLoggedIn();
 
 // Sources:
 
