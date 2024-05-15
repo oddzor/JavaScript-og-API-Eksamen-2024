@@ -41,6 +41,17 @@ function registerUser(event) {
     .catch((error) => console.error("Error:", error));
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const loginForm = document.getElementById('login__form');
+  const registrationForm = document.getElementById('registration__form');
+  const toggleFormsButton = document.getElementById('toggle__forms');
+
+  loginForm.addEventListener('submit', loginUser);
+  registrationForm.addEventListener('submit', registerUser);
+  toggleFormsButton.addEventListener('click', toggleForms);
+});
+
+
 function loginUser(event) {
   event.preventDefault();
   const email = document

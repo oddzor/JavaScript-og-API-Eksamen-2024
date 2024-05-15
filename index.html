@@ -11,21 +11,21 @@
     <header>Welcome to Gokstad Ranch Dog Adoption</header>
     <hr>
     <div class="form__main__container">
-      <form id="login__form" style="display:none;" onsubmit="loginUser(event)">
+      <form id="login__form" style="display:none;">
           <h2>Login</h2>
           <input type="email" id="login__email__input" placeholder="Email" name="email" required>
           <input type="password" id="login__password__input" placeholder="Password" name="password" required>
           <button type="submit">Login</button>
       </form>
 
-      <form id="registration__form" onsubmit="registerUser(event)">
+      <form id="registration__form">
           <h2>Register</h2>
           <input type="email" id="register__email_input" placeholder="Email" name="email" required>
           <input type="password" id="register__password__input" placeholder="Password" name="password" required>
           <button type="submit">Register</button>
       </form>
 
-      <button id="toggle__forms" onclick="toggleForms()">Switch to Login</button>
+      <button id="toggle__forms">Switch to Login</button>
   </div>
     <div id="dog__main__container">
     <div id="dog__name__container"></div>
