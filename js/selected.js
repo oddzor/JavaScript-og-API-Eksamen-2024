@@ -109,6 +109,13 @@ function addToWishlist() {
     });
 }
 
+function logoutUser() {
+  localStorage.clear(); 
+  window.location.href = 'index.html';
+}
+
+document.getElementById("logout__button__selected").addEventListener("click", logoutUser);
+
 window.onload = function () {  // Running necessary function on pageload.
   displayDog();
   randomDogFact();
