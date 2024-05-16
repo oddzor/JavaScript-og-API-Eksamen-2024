@@ -8,10 +8,13 @@
     <title>Gokstad Ranch</title>
 </head>
 <body>
-    <header>Welcome to Gokstad Ranch Dog Adoption</header>
-    <hr>
+    <header>
+        <h1>Welcome to Gokstad Ranch Dog Adoption</h1>
+    </header>
+    <div id="button__container__index">
     <a href="./wishlist.html"><button>Go To Wishlist</button></a>
     <button id="logout__button" style="display: none">Log Out</button>
+</div>
     <div class="form__main__container">
       <form id="login__form" style="display:none;">
           <h2>Login</h2>
@@ -21,18 +24,14 @@
       </form>
 
       <form id="registration__form">
-          <h2>Register</h2>
           <input type="email" id="register__email_input" placeholder="Email" name="email" required>
           <input type="password" id="register__password__input" placeholder="Password" name="password" required>
           <button type="submit">Register</button>
+          <button id="toggle__forms">Switch To Login</button>
       </form>
-
-      <button id="toggle__forms">Switch To Login</button>
   </div>
-    <div id="dog__main__container">
-    <div id="dog__name__container"></div>
     <div id="dog__image__container"></div>
-</div>
+    <footer>Gokstad Ranch 2024</footer>
 </body>
 <script type="module" src="./js/script.js"></script>
 <script type="module" src="./js/arrays.js"></script>

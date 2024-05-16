@@ -25,7 +25,8 @@ function registerUser(event) {
         favorites: [], // Initializing empty array to use for favorites/wishlist functionality.
       };
 
-      return fetch(mockBackend + "/users", { // Posting loginData to crudcrud backend.
+      return fetch(mockBackend + "/users", {
+        // Posting loginData to crudcrud backend.
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,16 +42,15 @@ function registerUser(event) {
     .catch((error) => console.error("Error:", error));
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const loginForm = document.getElementById('login__form');
-  const registrationForm = document.getElementById('registration__form');
-  const toggleFormsButton = document.getElementById('toggle__forms');
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("login__form");
+  const registrationForm = document.getElementById("registration__form");
+  const toggleFormsButton = document.getElementById("toggle__forms");
 
-  loginForm.addEventListener('submit', loginUser);
-  registrationForm.addEventListener('submit', registerUser);
-  toggleFormsButton.addEventListener('click', toggleForms);
+  loginForm.addEventListener("submit", loginUser);
+  registrationForm.addEventListener("submit", registerUser);
+  toggleFormsButton.addEventListener("click", toggleForms);
 });
-
 
 function loginUser(event) {
   event.preventDefault();
@@ -81,23 +81,26 @@ function loginUser(event) {
 }
 
 function logoutUser() {
-  localStorage.clear(); 
-  window.location.href = 'index.html';
+  localStorage.clear();
+  window.location.href = "index.html";
 }
 
-const logoutButton = document.getElementById("logout__button").addEventListener("click", logoutUser);
+const logoutButton = document
+  .getElementById("logout__button")
+  .addEventListener("click", logoutUser);
 
 function isLoggedIn() {
-  const userId = localStorage.getItem('userID');
+  const userId = localStorage.getItem("userID");
   if (userId) {
-      document.getElementById("login__form").style.display = "none";
-      document.getElementById("registration__form").style.display = "none";
-      document.getElementById("toggle__forms").style.display = "none";
-      document.getElementById("logout__button").style.display = "block";
+    document.getElementById("login__form").style.display = "none";
+    document.getElementById("registration__form").style.display = "none";
+    document.getElementById("toggle__forms").style.display = "none";
+    document.getElementById("logout__button").style.display = "block";
   }
 }
 
-function toggleForms() {
+function toggleForms(event) {
+  event.preventDefault();
   const loginForm = document.getElementById("login__form");
   const registrationForm = document.getElementById("registration__form");
   const toggleFormsButton = document.getElementById("toggle__forms"); // Toggling between register/login forms.
@@ -105,11 +108,11 @@ function toggleForms() {
   if (loginForm.style.display === "none") {
     loginForm.style.display = "block";
     registrationForm.style.display = "none";
-    toggleFormsButton.textContent = "Switch To Register";    
+    toggleFormsButton.textContent = "Switch To Register";
   } else {
     loginForm.style.display = "none";
     registrationForm.style.display = "block";
-    toggleFormsButton.textContent = "Switch To Login"
+    toggleFormsButton.textContent = "Switch To Login";
   }
 }
 
