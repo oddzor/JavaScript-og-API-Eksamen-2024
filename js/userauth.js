@@ -66,10 +66,10 @@ function loginUser(event) {
         (u) => u.email === email && u.password === password
       );
       if (user) {
-        console.log("Login Successful");
         localStorage.setItem("userID", user._id); // Adding userID and email to localStorage to simplify usage with selection and favorites.
         localStorage.setItem("userEmail", email);
         alert("Login Successful!");
+        window.location.href = 'index.html';
         document.getElementById("login__form").style.display = "none";
         document.getElementById("toggle__forms").style.display = "none"; // Hiding login-element when logging in.
       } else {
