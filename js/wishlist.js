@@ -19,7 +19,7 @@ async function getFavoriteDogs() {
         }
     } catch (error) {
         console.error(error);
-        document.getElementById('wishlist__container').textContent = 'Failed to load favorites. Check console for more information.';  // Error catching for "other errors"
+        document.getElementById('wishlist__container').textContent = 'Please log in to see your favorites.';  // Error catching for "other errors"
     }
 }
 
@@ -28,7 +28,7 @@ function showFavoriteDogs(favorites) {
     favoritesContainer.innerHTML = '';
     favorites.forEach((favorite, index) => {
         const favoriteElement = document.createElement('div');  // For loop to create and display all favorites in separate elements.
-        favoriteElement.className = 'favorite-item';
+        favoriteElement.className = 'favorite__item__wrapper';
 
         const name = document.createElement('h3');
         name.textContent = favorite.name;
@@ -43,7 +43,7 @@ function showFavoriteDogs(favorites) {
         breed.textContent = `Breed: ${favorite.breed}`;
         
         const removeButton = document.createElement('button');
-        removeButton.textContent = 'Remove From Wishlist';
+        removeButton.textContent = 'Remove';
         removeButton.className = 'remove__favorite__button';
 
         removeButton.addEventListener('click', () => removeFavorite(index, favorites));

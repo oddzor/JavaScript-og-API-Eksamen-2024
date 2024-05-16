@@ -14,6 +14,7 @@ window.onload = function randomDogs() {
                 img.src = data.message;
                 img.style.width = 'auto'; 
                 img.style.height = '300px';
+                img.className = "dog__image__element";
                 dogImageContainer.appendChild(img);
                 img.addEventListener('click', function() {
                     localStorage.setItem('selectedDogImage', img.src);
