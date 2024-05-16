@@ -1,0 +1,35 @@
+.button__wrapper__selected {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#selected__dog__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#selected__dog__text {
+display: flex;
+flex-direction: column;
+}
+
+img {
+    width: auto;
+    height: 40rem;
+}
+
+#selected__dog__name, #selected__dog__breed {
+margin-block: 2rem;
+}
+
+#random__dog__information {
+    margin-block: 2rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+

@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png">
     <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
     <title>Gokstad Ranch</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to Gokstad Ranch Dog Adoption</h1>
+        <h1>Gokstad Ranch Dog Adoption</h1>
     </header>
     <div id="button__container__index">
     <a href="./wishlist.html"><button>Go To Wishlist</button></a>
@@ -17,21 +18,37 @@
 </div>
     <div class="form__main__container">
       <form id="login__form" style="display:none;">
-          <h2>Login</h2>
+          <div class="input__field__wrapper">
+            <h3>Login</h3>
           <input type="email" id="login__email__input" placeholder="Email" name="email" required>
           <input type="password" id="login__password__input" placeholder="Password" name="password" required>
+        </div>
           <button type="submit">Login</button>
       </form>
 
       <form id="registration__form">
+
+        <div class="input__field__wrapper">
+            <h3>Register</h3>
           <input type="email" id="register__email_input" placeholder="Email" name="email" required>
           <input type="password" id="register__password__input" placeholder="Password" name="password" required>
+        </div>
+        <div class="register__button__wrapper">
           <button type="submit">Register</button>
           <button id="toggle__forms">Switch To Login</button>
+        </div>
       </form>
   </div>
+  <div class="text__content__box"><p>Welcome to Gokstad Ranch Dog Adoption! Our mission is to provide loving homes for dogs in need. At Gokstad Ranch, we believe every dog deserves a second chance and a caring family. We rescue dogs from various situations and ensure they are healthy, vaccinated, and ready for adoption.</p>
+
+    <p>Whether you're looking for a playful puppy or a calm adult dog, Gokstad Ranch has the perfect companion waiting for you. Our dedicated team works tirelessly to match each dog with the right home, ensuring a happy and lasting relationship.
+    Available Dogs for Adoption</p>
+    
+    <p>Below, you'll find a selection of our wonderful dogs currently available for adoption. Each dog comes with a unique story and a loving heart, ready to bring joy to your home. Take a look at our adoptable dogs and find your new best friend today!</p></div>
+    <div id="lower__content__wrapper">
     <div id="dog__image__container"></div>
     <footer>Gokstad Ranch 2024</footer>
+</div>
 </body>
 <script type="module" src="./js/script.js"></script>
 <script type="module" src="./js/arrays.js"></script>

@@ -5,17 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/selected.css">
     <title>Gokstad Ranch</title>
 </head>
 <body>
-<a href="index.html"><button>Return to Homepage</button></a>
+    <header>
+        <h1>Gokstad Ranch Dog Adoption</h1>
+    </header>
+    <div class="button__wrapper__selected">
+<a href="index.html"><button id="return__to__homepage__selected">Homepage</button></a>
 <button id="logout__button__selected">Log Out</button>
+</div>
+<div id="selected__dog__wrapper">
 <img id="selected__dog__picture" alt="Picture of selected dog">
+<div id="selected__dog__text">
 <div id="selected__dog__name"></div>
 <div id="selected__dog__breed"></div>
 <div id="random__dog__information"></div>
 <button id="dog__wishlist__button">Add to Wishlist</button>
 <button id="goto__wishlist__button">Go to Wishlist</button>
+</div>
+</div>
+<footer>Gokstad Ranch 2024</footer>
 <script type="module" src="./js/selected.js"></script>
 </body>
 </html>
