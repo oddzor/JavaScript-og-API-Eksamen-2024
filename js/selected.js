@@ -77,7 +77,7 @@ function addToWishlist() {
       }
 
       user.favorites.push(favoriteDog);
-
+alert(`${selectedDogName} added to wishlist`);
       const simplifiedUser = {
         email: user.email,
         password: user.password,
