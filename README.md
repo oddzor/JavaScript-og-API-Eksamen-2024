@@ -49,7 +49,6 @@
 # Application Workflow for Fetching DogAPI Data and User Interactions
 
 ```mermaid
-flowchart TD
     A[Start] --&gt; B[Fetch DogAPI Data]
     B --&gt; C[Create 25 HTML Elements and Populate using For Loop]
     C --&gt; D{Is User Registered?}
