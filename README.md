@@ -120,33 +120,30 @@ User specific data is retrieved from the [backend](https://crudcrud.com/Dashboar
 ### Remove button
 
 
-<button>Remove</button>
-
-
 The remove button ``onclick`` function will target the specific index and splice this from the ``[favorites];`` array, then run a ``PUT`` request to update [backend](https://crudcrud.com/Dashboard/49b54a659c37444badaa69070d61b85a) based on the ``updatedFavorites`` variable.
-
 
 
 ### Logout button
 
-<button>Log Out</button> 
 
 This button will completely clear ``localStorage`` and redirect to ``index.html`` allowing you to login again, or login/register with other user credentials.
 
+
 ### Delete account 
 
-<button>Delete My Account</button>
 
 The delete account button will target the user credentials that is currently logged with a ``DELETE`` request while also completely clearing ``localStorage``.
 
 
 ### Sorting by name
 
-<button>Sort by Name </button> 
 
 Sorting the favorites by name is achieved by using ``.sort`` and a ``localeCompare`` function to alphabetically arrange the entries when you click the button  
 
+
 <hr>
+
+
 
 # Notes
 
