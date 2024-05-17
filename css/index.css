@@ -29,6 +29,10 @@ input {
     background-color: #f3f3f3;
 }
 
+input.active {
+color: black;
+}
+
 #button__container__index {
     display: flex;
     justify-content: flex-end;

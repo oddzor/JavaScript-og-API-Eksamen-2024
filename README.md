@@ -34,5 +34,5 @@
 
 #### This specific endpoint is required for a working app, this issue can be resolved by replacing the endpoint url with a current one. 
 
-> [!NOTE]  
+> [!CAUTION]  
 > As of May 17th 2024, there are approximately 55 days remaining on the endpoints life.
