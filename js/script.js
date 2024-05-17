@@ -36,6 +36,5 @@ window.onload = function randomDogs() {
     }
 };
 
-// Sources: 
 
-// https://stackoverflow.com/questions/76149003/foreach-loop-in-js-is-only-selecting-one-image-from-my-gallery
+

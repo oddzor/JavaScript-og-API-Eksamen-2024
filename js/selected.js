@@ -100,7 +100,7 @@ alert(`${selectedDogName} added to wishlist`);
         });
       }
       if (response.status === 200 || response.status === 204) {
-        return {};
+        return {}; // Avoiding console error message for no content in body.
       }
       return response.json();
     })
@@ -131,6 +131,10 @@ window.onload = function () {  // Running necessary function on pageload.
 document.getElementById("goto__wishlist__button").addEventListener("click", function goToWishlist() {
   window.location.href = 'wishlist.html';
 } ); 
+
+document.getElementById("return__to__homepage__selected").addEventListener("click", function goToHomePage() {
+  window.location.href = 'index.html';
+} ); 
   
 
 
@@ -140,3 +144,5 @@ document.getElementById("goto__wishlist__button").addEventListener("click", func
 // https://regex101.com/r/h0Cohs/1
 // https://stackoverflow.com/questions/50515834/extract-part-of-url-with-regex
 // https://stackoverflow.com/questions/49360639/how-to-reverse-words-in-a-string-instead-of-reversing-the-whole-string
+// https://stackoverflow.com/questions/50440389/status-204-shows-response-ok
+// https://stackoverflow.com/questions/15348570/add-to-favorites-array

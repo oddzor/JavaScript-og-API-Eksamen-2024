@@ -1,18 +1,19 @@
 let favorites = [];
+let currentUser = null;
 
 async function getFavoriteDogs() {
     const userId = localStorage.getItem('userID'); // Retrieving userID again to target to GET request.
-    const apiUrl = `https://crudcrud.com/api/49b54a659c37444badaa69070d61b85a/users/${userId}`; // Template literal for targeting.
+    const apiUrl = `https://crudcrud.com/api/49b54a659c37444badaa69070d61b85a/users/${userId}`; // Template literal for targeting specific users favorites.
    
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`Error Code: ${response.status}`);
         }
-        const user = await response.json();
+        currentUser = await response.json();
 
-        if (user && user.favorites && user.favorites.length > 0) {   // If favorites are added, run function to display.
-            favorites = user.favorites;
+        if (currentUser && currentUser.favorites && currentUser.favorites.length > 0) {   // If favorites are added, run function to display.
+            favorites = currentUser.favorites;
             showFavoriteDogs(favorites);
         } else {
             document.getElementById('wishlist__container').textContent = 'No favorites found.';  // If no favorites are added.
@@ -59,37 +60,46 @@ function showFavoriteDogs(favorites) {
     sortByNameButton.onclick = () => sortbyName(favorites);
 }
 
-function removeFavorite(index, favorites) {
-
+function removeFavorite(index) {
     const userId = localStorage.getItem('userID');
     const apiUrl = `https://crudcrud.com/api/49b54a659c37444badaa69070d61b85a/users/${userId}`;
 
-    let updatedFavorites = [...favorites];
-    updatedFavorites.splice(index, 1);  // Remove the favorite
+    const updatedFavorites = [...currentUser.favorites]; // Remove the favorite from the current user's favorites in the backend
+    updatedFavorites.splice(index, 1);
 
-    fetch(apiUrl, {  // PUT request to update data in backend as subdirectories was not allowed.
+    const simplifiedUser = {
+        email: currentUser.email,
+        password: currentUser.password,
+        favorites: updatedFavorites
+    };
+
+    fetch(apiUrl, {  // PUT request to update data in backend
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ favorites: updatedFavorites })
+        body: JSON.stringify(simplifiedUser)
     })
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        if (response.status === 200 || response.status === 204) { 
-          return {}; // Avoiding error message because response body is empty.
+        if (response.status === 204 || response.status === 200) {
+            return null; // Return null for no content response to avoid unnecessary console "error"
         }
         return response.json();
     })
     .then(() => {
-        showFavoriteDogs(updatedFavorites);
+        currentUser.favorites = updatedFavorites; // Update currentUser after successful PUT
+        showFavoriteDogs(currentUser.favorites);
     })
     .catch(error => {
-        console.error(error);
+        console.error("Failed to remove favorite:", error);
     });
 }
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -138,9 +148,23 @@ function logoutUser() {
     localStorage.clear(); 
     window.location.href = 'index.html';
   }
-  document.getElementById("logout__button__wishlist").addEventListener("click", logoutUser);
+  document.getElementById("logout__button__wishlist").addEventListener("click", logoutUser); // General button functionality and onload functions.
 
+
+  document.getElementById("home__button").addEventListener("click", returnToHome);
+
+  function returnToHome() {
+    window.location.href = "index.html";
+  };
 
 window.onload = function () { 
     getFavoriteDogs();
 }
+
+
+// Sources:
+
+// https://stackoverflow.com/questions/40284338/javascript-fetch-delete-and-put-requests
+// https://stackoverflow.com/questions/71927002/delete-user-endpoint-using-fetch
+// https://stackoverflow.com/questions/34559918/spread-syntax-es6
+// https://stackoverflow.com/questions/69083313/how-to-sort-by-a-specific-value-with-localecompare

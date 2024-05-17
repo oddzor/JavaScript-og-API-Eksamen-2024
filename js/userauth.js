@@ -13,21 +13,20 @@ function registerUser(event) {
   fetch(mockBackend + "/users")
     .then((response) => response.json())
     .then((users) => {
-      const existingUser = users.find((u) => u.email === email);
+      const existingUser = users.find((u) => u.email === email);  // Checking backend data to see if email already is registered
       if (existingUser) {
-        alert("Email is already registered."); // Avoiding registration spamming.
+        alert("Email is already registered."); 
         throw new Error("Email already exists");
       }
 
-      const loginData = {
+      const loginData = {  // Object to be posted to backend.
         email,
         password,
         favorites: [], // Initializing empty array to use for favorites/wishlist functionality.
       };
 
-      return fetch(mockBackend + "/users", {
-        // Posting loginData to crudcrud backend.
-        method: "POST",
+      return fetch(mockBackend + "/users", { // Posting loginData to crudcrud backend.
+                method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -36,8 +35,8 @@ function registerUser(event) {
     })
     .then((response) => response.json())
     .then(() => {
-      console.log("Registration Successful");
-      toggleForms();
+      alert("Registration Successful");
+      toggleForms({ preventDefault: () => { }});
     })
     .catch((error) => console.error("Error:", error));
 }
@@ -63,18 +62,18 @@ function loginUser(event) {
     .then((response) => response.json())
     .then((users) => {
       const user = users.find(
-        (u) => u.email === email && u.password === password
+        (u) => u.email === email && u.password === password  // Fetching userdata and crosschecking stored email/password.
       );
       if (user) {
         localStorage.setItem("userID", user._id); // Adding userID and email to localStorage to simplify usage with selection and favorites.
         localStorage.setItem("userEmail", email);
         alert("Login Successful!");
-        window.location.href = 'index.html';
         document.getElementById("login__form").style.display = "none";
-        document.getElementById("toggle__forms").style.display = "none"; // Hiding login-element when logging in.
+        document.getElementById("toggle__forms").style.display = "none";
+        document.getElementById("logout__button").style.display = "block"; // Hiding login-element when logging in.
       } else {
-        console.log("Login Failed: Invalid credentials");
-        alert("Login Failed: Username or Password");
+        alert("Login Failed: Check credentials or register");
+        window.location.href = "index.html"
       }
     })
     .catch((error) => console.error("Error:", error));
