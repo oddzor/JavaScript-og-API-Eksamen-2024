@@ -1,68 +1,66 @@
 #registration__form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .input__field__wrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    height: 2rem;
-    padding: 1rem;
-    margin-block: 1rem;
-    width: 25rem;
-    border: none;
-    background-color: #f3f3f3;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+  padding: 1rem;
+  margin-block: 1rem;
+  width: 25rem;
+  border: none;
+  background-color: #f3f3f3;
 }
 
-
-
 input:focus {
-color: black;
+  color: black;
 }
 
 #button__container__index {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #button__container__index button {
-margin-inline: 0.5rem;
+  margin-inline: 0.5rem;
 }
 
 #registration__form {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .register__button__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .register__button__wrapper button {
-margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .text__content__box {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-inline: 10rem;
-    padding-block: rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10rem;
+  padding-block: rem;
 }
 
 #lower__content__wrapper {
-    margin-inline: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin-inline: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

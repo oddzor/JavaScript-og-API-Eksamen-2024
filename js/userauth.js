@@ -13,20 +13,22 @@ function registerUser(event) {
   fetch(mockBackend + "/users")
     .then((response) => response.json())
     .then((users) => {
-      const existingUser = users.find((u) => u.email === email);  // Checking backend data to see if email already is registered
+      const existingUser = users.find((u) => u.email === email); // Checking backend data to see if email already is registered
       if (existingUser) {
-        alert("Email is already registered."); 
+        alert("Email is already registered.");
         throw new Error("Email already exists");
       }
 
-      const loginData = {  // Object to be posted to backend.
+      // Object to be posted to backend.
+      const loginData = {
         email,
         password,
         favorites: [], // Initializing empty array to use for favorites/wishlist functionality.
       };
 
-      return fetch(mockBackend + "/users", { // Posting loginData to crudcrud backend.
-                method: "POST",
+      return fetch(mockBackend + "/users", {
+        // Posting loginData to crudcrud backend.
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -36,7 +38,7 @@ function registerUser(event) {
     .then((response) => response.json())
     .then(() => {
       alert("Registration Successful");
-      toggleForms({ preventDefault: () => { }});
+      toggleForms({ preventDefault: () => {} });
     })
     .catch((error) => console.error("Error:", error));
 }
@@ -62,7 +64,7 @@ function loginUser(event) {
     .then((response) => response.json())
     .then((users) => {
       const user = users.find(
-        (u) => u.email === email && u.password === password  // Fetching userdata and crosschecking stored email/password.
+        (u) => u.email === email && u.password === password // Fetching userdata and crosschecking stored email/password.
       );
       if (user) {
         localStorage.setItem("userID", user._id); // Adding userID and email to localStorage to simplify usage with selection and favorites.
@@ -73,7 +75,7 @@ function loginUser(event) {
         document.getElementById("logout__button").style.display = "block"; // Hiding login-element when logging in.
       } else {
         alert("Login Failed: Check credentials or register");
-        window.location.href = "index.html"
+        window.location.href = "index.html";
       }
     })
     .catch((error) => console.error("Error:", error));

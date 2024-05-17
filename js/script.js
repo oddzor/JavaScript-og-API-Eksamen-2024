@@ -31,7 +31,7 @@ window.onload = function randomDogs() {
         }
     }
 
-    for (let i = 0; i < 25; i++) {  // For loop to request random dog picture 10 times.
+    for (let i = 0; i < 25; i++) {  // For loop to request random dog picture 25 times.
         fetchAndDisplayImage();
     }
 };

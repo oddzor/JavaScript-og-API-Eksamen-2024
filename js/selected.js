@@ -54,7 +54,7 @@ function addToWishlist() {
   const breedElement = document.getElementById("selected__dog__breed");
   const selectedDogBreed = breedElement
     ? breedElement.textContent.replace("Breed: ", "") // Removing "Breed:" to clean up stored object
-    : "Unknown Breed"; 
+    : "Unknown Breed";
   const userId = localStorage.getItem("userID");
 
   if (!userId) {
@@ -77,7 +77,7 @@ function addToWishlist() {
       }
 
       user.favorites.push(favoriteDog);
-alert(`${selectedDogName} added to wishlist`);
+      alert(`${selectedDogName} added to wishlist`);
       const simplifiedUser = {
         email: user.email,
         password: user.password,
@@ -110,13 +110,16 @@ alert(`${selectedDogName} added to wishlist`);
 }
 
 function logoutUser() {
-  localStorage.clear(); 
-  window.location.href = 'index.html';
+  localStorage.clear();
+  window.location.href = "index.html";
 }
 
-document.getElementById("logout__button__selected").addEventListener("click", logoutUser);
+document
+  .getElementById("logout__button__selected")
+  .addEventListener("click", logoutUser);
 
-window.onload = function () {  // Running necessary function on pageload.
+window.onload = function () {
+  // Running necessary function on pageload.
   displayDog();
   randomDogFact();
   displayBreedName();
@@ -127,16 +130,17 @@ window.onload = function () {  // Running necessary function on pageload.
     .addEventListener("click", addToWishlist);
 };
 
+document
+  .getElementById("goto__wishlist__button")
+  .addEventListener("click", function goToWishlist() {
+    window.location.href = "wishlist.html";
+  });
 
-document.getElementById("goto__wishlist__button").addEventListener("click", function goToWishlist() {
-  window.location.href = 'wishlist.html';
-} ); 
-
-document.getElementById("return__to__homepage__selected").addEventListener("click", function goToHomePage() {
-  window.location.href = 'index.html';
-} ); 
-  
-
+document
+  .getElementById("return__to__homepage__selected")
+  .addEventListener("click", function goToHomePage() {
+    window.location.href = "index.html";
+  });
 
 // Sources:
 
