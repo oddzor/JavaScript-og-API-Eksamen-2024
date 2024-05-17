@@ -119,7 +119,27 @@ User specific data is retrieved from the [backend](https://crudcrud.com/Dashboar
 
 ### Remove button
 
+
 <button>Remove</button>
+<style>
+button {
+  background-color: #764cea;
+  border-radius: 8px;
+  border-style: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 2rem;
+  margin-block: 1rem;
+  outline: none;
+  padding: 0.5rem 0.75rem;
+  width: 10rem;
+}
+</style>
 
 The remove button ``onclick`` function will target the specific index and splice this from the ``[favorites];`` array, then run a ``PUT`` request to update [backend](https://crudcrud.com/Dashboard/49b54a659c37444badaa69070d61b85a) based on the ``updatedFavorites`` variable.
 
@@ -172,22 +192,4 @@ The crudcrud endpoint has both a request limit and a time limit until it goes de
 
 
 
-<style>
-button {
-  background-color: #764cea;
-  border-radius: 8px;
-  border-style: none;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: 500;
-  height: 2rem;
-  margin-block: 1rem;
-  outline: none;
-  padding: 0.5rem 0.75rem;
-  width: 10rem;
-}
-</style>
+
