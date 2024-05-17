@@ -77,3 +77,4 @@ flowchart TD
     V --&gt; W[Clear Data from localStorage Only]
     U --&gt; X[End]
     W --&gt; X[End]
+    ```
